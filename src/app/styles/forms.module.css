@@ -1,0 +1,85 @@
+.formWrapper {
+    margin: 1.5em 5%;
+    max-width: 600px;
+}
+
+.heading {
+    margin: 1.5em 0;
+}
+
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375em;
+
+    margin: 1em 0;
+}
+
+.label {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.input {
+    border: 1px solid rgb(var(--yellow-rgb));
+    font-size: 1.125rem;
+    font-weight: 600;
+    padding: 1em 0.56em;
+}
+
+.input::placeholder {
+    color: rgba(54, 69, 79, 0.20);
+}
+
+/* Chrome/Opera/Safari */
+.input::-webkit-input-placeholder {
+    color: rgba(54, 69, 79, 0.20);
+}
+
+/* Firefox 19+ */
+.input::-moz-placeholder {
+    color: rgba(54, 69, 79, 0.20);
+}
+
+/* IE 10+ */
+.input:-ms-input-placeholder {
+    color: rgba(54, 69, 79, 0.20);
+}
+
+/* Firefox 18- */
+.input:-moz-placeholder {
+    color: rgba(54, 69, 79, 0.20);
+}
+
+/* Change autocomplete styles */
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus  {
+    -webkit-text-fill-color: inherit;
+    box-shadow: 0 0 0 30px rgb(var(--white-rgb)) inset;
+    transition: background-color 5000s ease-in-out 0;
+}
+
+.input:focus {
+    outline: 1px solid rgb(var(--yellow-rgb));
+}
+
+.submitBtn {
+    background: rgb(var(--yellow-rgb));
+    border: none;
+    border-radius: 0.3em;
+    color: rgb(var(--white-rgb));
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.25rem;
+    padding: 0.8em 0.5em;
+    margin: 1.5em 0;
+    width: 100%;
+}
+
+@media (min-width: 769px) {
+    .formWrapper {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

@@ -1,0 +1,104 @@
+.formWrapper {
+    margin: 2em 5%;
+    max-width: 600px;
+}
+
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375em;
+
+    margin: 1em 0;
+}
+
+.label {
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.input {
+    border: 1px solid rgb(var(--yellow-rgb));
+    font-size: 1.125rem;
+    font-weight: 600;
+    padding: 1em 0.56em;
+}
+
+.input::placeholder {
+    color: rgba(54, 69, 79, 0.20);
+}
+
+/* Chrome/Opera/Safari */
+.input::-webkit-input-placeholder {
+    color: rgba(54, 69, 79, 0.20);
+}
+
+/* Firefox 19+ */
+.input::-moz-placeholder {
+    color: rgba(54, 69, 79, 0.20);
+}
+
+/* IE 10+ */
+.input:-ms-input-placeholder {
+    color: rgba(54, 69, 79, 0.20);
+}
+
+/* Firefox 18- */
+.input:-moz-placeholder {
+    color: rgba(54, 69, 79, 0.20);
+}
+
+/* Change autocomplete styles */
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus {
+    -webkit-text-fill-color: inherit;
+    box-shadow: 0 0 0 30px rgb(var(--white-rgb)) inset;
+    transition: background-color 5000s ease-in-out 0;
+}
+
+.input:focus {
+    outline: 1px solid rgb(var(--yellow-rgb));
+}
+
+.formBtns {
+    display: flex;
+    gap: 1em;
+}
+
+.btn {
+    background: rgb(var(--yellow-rgb));
+    border: none;
+    border-radius: 0.333em;
+    color: rgb(var(--white-rgb));
+    cursor: pointer;
+    font-weight: 600;
+    padding: 1em 1.5em;
+    margin: 2em 0;
+}
+
+.stepTwoInputs .label,
+.stepThreeInputs .label {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+}
+
+.stepTwoInputs .label::before,
+.stepThreeInputs .label::before {
+    content: '';
+
+    background: rgb(var(--yellow-rgb));
+    border-radius: 50%;
+    height: 14px;
+    width: 14px;
+
+    display: inline-block;
+}
+
+@media (min-width: 769px) {
+    .formWrapper {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

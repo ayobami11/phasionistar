@@ -1,95 +1,63 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client'
+
+import { useState } from 'react';
+
+import Image from 'next/image';
+import Link from 'next/link';
+
+import {GrFormPreviousLink, GrFormNextLink} from 'react-icons/gr';
+
+import onboardingImage from '../../public/assets/images/onboarding-image.png';
+
+import styles from './page.module.css';
+
 
 export default function Home() {
+  const [onboardingPage, setOnboardingPage] = useState<1 | 2>(1);
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main>
+      {
+        onboardingPage === 2 ?
+          (
+            <button className={styles.backBtn} onClick={() => setOnboardingPage(1)}>
+              <GrFormPreviousLink />
+            </button>
+          ) : null
+      }
+
+      <section className={styles.onboardingSection}>
+        <Image className={styles.onboardingImg} src={onboardingImage} alt='Tailoring material' />
+        <div className={styles.onboaringText}>
+          <>
+            {
+              onboardingPage === 1 ? (
+                <>
+                  <h2 className={styles.onboardingHeading}>Record Your Information</h2>
+                  <p>This app enables you to keep record of your body details. It can be adjusted, saved and shared to others.</p>
+
+                  <nav className={styles.onboardingNav}>
+                    <button className={`btn ${styles.nextBtn}`} onClick={() => setOnboardingPage(2)}>
+                      Next
+                      <GrFormNextLink />
+                    </button>
+                  </nav>
+                </>
+              ) : (
+                <>
+                  <h2 className={styles.onboardingHeading}>Data Protection and Privacy</h2>
+                  <p>Your privacy is our priority. We adhere to strict data protection regulations and ensure that your personal information is secure.</p>
+
+                  <nav className={styles.onboardingNav}>
+                    <Link className={`btn ${styles.onboardingLink}`} href='/register'>Register</Link>
+                    <Link className={styles.onboardingLink} href='/login'>Log in</Link>
+                  </nav>
+                </>
+              )
+            }
+          </>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      </section>
     </main>
   )
 }
