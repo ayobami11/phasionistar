@@ -1,4 +1,4 @@
-import RegisterForm from '@/app/components/RegisterForm';
+import RegisterForm from '@/app/components/register/RegisterForm';
 
 import styles from '@/app/styles/forms.module.css';
 

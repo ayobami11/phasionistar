@@ -1,4 +1,4 @@
-import LoginForm from "@/app/components/LoginForm";
+import LoginForm from "@/app/components/login/LoginForm";
 
 import styles from '@/app/styles/forms.module.css';
 

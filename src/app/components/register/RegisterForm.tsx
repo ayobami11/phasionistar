@@ -2,6 +2,8 @@
 
 import { useState, useRef } from "react";
 
+import { useRouter } from 'next/navigation';
+
 import useSWRMutation from 'swr/mutation';
 
 import axios from '@/app/axios';
@@ -16,6 +18,8 @@ interface RegisterFormType {
 }
 
 const RegisterForm = () => {
+
+    const router = useRouter();
 
     const formRef = useRef<HTMLFormElement>(null);
 
@@ -33,7 +37,7 @@ const RegisterForm = () => {
         return response;
     }
 
-    const { trigger } = useSWRMutation('/user/register', sendRequest);
+    const { trigger, isMutating } = useSWRMutation('/user/register', sendRequest);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
         setFormDetails({
@@ -67,9 +71,9 @@ const RegisterForm = () => {
             try {
                 const result = await trigger(formDetails);
 
-                console.log(result);
-
-                
+                if (result.status === 201) {
+                    router.push('/login');
+                }
 
             } catch (error) {
                 console.log(error);
@@ -140,7 +144,7 @@ const RegisterForm = () => {
                 />
             </div>
 
-            <button className={styles.submitBtn} type="submit">Register</button>
+            <button className={styles.submitBtn} type="submit" disabled={isMutating}>Register</button>
         </form>
     );
 }

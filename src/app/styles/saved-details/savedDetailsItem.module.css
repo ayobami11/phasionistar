@@ -1,0 +1,59 @@
+.item:not(:last-child) .textWrapper {
+    border-bottom: 0.5px solid rgb(203, 203, 203);
+}
+
+.article {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+
+    font-size: 0.875rem;
+}
+
+.img {
+    flex-shrink: 0;
+}
+
+.textWrapper {
+    display: flex;
+    gap: 2.75rem;
+}
+
+.middle {
+    /* text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap; */
+}
+
+.name {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.location {
+    /* truncates the content to just 1 line */
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.statusSaved {
+    color: rgb(241, 175, 6);
+}
+
+.statusPending {
+    color: rgb(255, 0, 0);
+}
+
+.date {
+    color: rgba(0, 0, 0, 0.47);
+}

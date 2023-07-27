@@ -1,0 +1,100 @@
+.formInputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2em;
+}
+
+.formInput {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375em;
+}
+
+.label {
+    font-weight: 600;
+
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+}
+
+.label::before {
+    content: '';
+
+    background: rgb(var(--yellow-rgb));
+    border-radius: 50%;
+    height: 14px;
+    width: 14px;
+
+    display: inline-block;
+}
+
+.inputWrapper {
+    position: relative;
+
+    width: fit-content;
+}
+
+.inputWrapper span {
+    color: rgba(0, 0, 0, 0.42);
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10%;
+}
+
+.input {
+    border: 1px solid rgb(var(--yellow-rgb));
+    border-radius: 0.375em;
+    font-weight: 600;
+    padding: 1em 0.625em;
+    width: 100%;
+
+    position: relative;
+}
+
+.input::after {
+    content: 'djksfl';
+    color: red;
+
+    position: absolute;
+    right: 5%;
+}
+
+.input::placeholder {
+    color: rgba(54, 69, 79, 0.20);
+}
+
+/* Chrome/Opera/Safari */
+.input::-webkit-input-placeholder {
+    color: rgba(54, 69, 79, 0.20);
+}
+
+/* Firefox 19+ */
+.input::-moz-placeholder {
+    color: rgba(54, 69, 79, 0.20);
+}
+
+/* IE 10+ */
+.input:-ms-input-placeholder {
+    color: rgba(54, 69, 79, 0.20);
+}
+
+/* Firefox 18- */
+.input:-moz-placeholder {
+    color: rgba(54, 69, 79, 0.20);
+}
+
+/* Change autocomplete styles */
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus {
+    -webkit-text-fill-color: inherit;
+    box-shadow: 0 0 0 30px rgb(var(--white-rgb)) inset;
+    transition: background-color 5000s ease-in-out 0;
+}
+
+.input:focus {
+    outline: 1px solid rgb(var(--yellow-rgb));
+}

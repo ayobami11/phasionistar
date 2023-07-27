@@ -24,11 +24,22 @@ img {
   max-width: 100%;
 }
 
+ul {
+  list-style: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
+/* Removes arrows from number inputs */
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button,
+input[type=number] {
+  appearance: none;
+  margin: 0;
+}
 
 .btn {
   background: rgb(var(--yellow-rgb));

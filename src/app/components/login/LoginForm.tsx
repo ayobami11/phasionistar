@@ -4,6 +4,8 @@ import { useState, useRef } from 'react';
 
 import useSWRMutation from 'swr/mutation';
 
+import { useRouter } from 'next/navigation';
+
 import axios from '@/app/axios';
 
 import styles from '@/app/styles/forms.module.css';
@@ -14,6 +16,8 @@ interface LoginFormType {
 }
 
 const LoginForm = () => {
+
+    const router = useRouter();
 
     const formRef = useRef<HTMLFormElement>(null);
 
@@ -36,7 +40,7 @@ const LoginForm = () => {
         return response;
     }
 
-    const { trigger } = useSWRMutation('/user/login', sendRequest);
+    const { trigger, isMutating } = useSWRMutation('/user/login', sendRequest);
 
     const validateFormDetails = () => {
 
@@ -59,8 +63,22 @@ const LoginForm = () => {
 
         event.preventDefault();
 
+        const submitFormData = async () => {
+            try {
+                const result = await trigger(formDetails);
+
+                if (result.status === 200) {
+                    router.push('/dashboard');
+                }
+
+            } catch (error) {
+                console.log(error);
+            }
+
+        }
+
         if (validateFormDetails()) {
-            trigger(formDetails);
+            submitFormData();
         } else {
             formRef.current?.reportValidity();
         }
@@ -96,7 +114,7 @@ const LoginForm = () => {
                 />
             </div>
 
-            <button className={styles.submitBtn} type="submit">Log In</button>
+            <button className={styles.submitBtn} type="submit" disabled={isMutating}>Log In</button>
         </form>
     )
 }

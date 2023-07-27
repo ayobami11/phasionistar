@@ -1,4 +1,4 @@
-import { CustomerDetailsType } from "./AddCustomerForm";
+import { CustomerDetailsType } from '@/app/reducers/savedDetails';
 
 import styles from '@/app/add-customer/addCustomer.module.css';
 
@@ -68,6 +68,7 @@ const FormStepOne = ({ customerDetails, handleInputChange }: FormStepOneType) =>
                     type="number"
                     name="price"
                     id="price"
+                    min={0}
                     value={customerDetails.price}
                     required
                     onChange={handleInputChange}
@@ -80,6 +81,7 @@ const FormStepOne = ({ customerDetails, handleInputChange }: FormStepOneType) =>
                     type="number"
                     name="deposit"
                     id="deposit"
+                    min={0}
                     value={customerDetails.deposit}
                     required
                     onChange={handleInputChange}

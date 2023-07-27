@@ -1,4 +1,4 @@
-import { CustomerDetailsType } from "./AddCustomerForm";
+import { CustomerDetailsType } from '@/app/reducers/savedDetails';
 
 import styles from '@/app/add-customer/addCustomer.module.css';
 
@@ -36,6 +36,7 @@ const FormStepTwo = ({ customerDetails, handleInputChange, handleSelectChange }:
                     name="leg"
                     id="leg"
                     value={customerDetails.leg}
+                    min={0}
                     pattern={decimalNumberPattern}
                     required
                     onChange={handleInputChange}
@@ -49,6 +50,7 @@ const FormStepTwo = ({ customerDetails, handleInputChange, handleSelectChange }:
                     name="neck"
                     id="neck"
                     value={customerDetails.neck}
+                    min={0}
                     pattern={decimalNumberPattern}
                     required
                     onChange={handleInputChange}
@@ -62,6 +64,7 @@ const FormStepTwo = ({ customerDetails, handleInputChange, handleSelectChange }:
                     name="waist"
                     id="waistline"
                     value={customerDetails.waist}
+                    min={0}
                     pattern={decimalNumberPattern}
                     required
                     onChange={handleInputChange}
@@ -75,6 +78,7 @@ const FormStepTwo = ({ customerDetails, handleInputChange, handleSelectChange }:
                     name="shoulder"
                     id="shoulder-width"
                     value={customerDetails.shoulder}
+                    min={0}
                     pattern={decimalNumberPattern}
                     required
                     onChange={handleInputChange}
@@ -88,6 +92,7 @@ const FormStepTwo = ({ customerDetails, handleInputChange, handleSelectChange }:
                     name="arm"
                     id="arm-length"
                     value={customerDetails.arm}
+                    min={0}
                     pattern={decimalNumberPattern}
                     required
                     onChange={handleInputChange}
@@ -101,6 +106,7 @@ const FormStepTwo = ({ customerDetails, handleInputChange, handleSelectChange }:
                     name="chest"
                     id="chest"
                     value={customerDetails.chest}
+                    min={0}
                     pattern={decimalNumberPattern}
                     required
                     onChange={handleInputChange}
@@ -114,6 +120,7 @@ const FormStepTwo = ({ customerDetails, handleInputChange, handleSelectChange }:
                     name="bicep"
                     id="bicep"
                     value={customerDetails.bicep}
+                    min={0}
                     pattern={decimalNumberPattern}
                     required
                     onChange={handleInputChange}
@@ -127,6 +134,7 @@ const FormStepTwo = ({ customerDetails, handleInputChange, handleSelectChange }:
                     name="wrist"
                     id="wrist"
                     value={customerDetails.wrist}
+                    min={0}
                     pattern={decimalNumberPattern}
                     required
                     onChange={handleInputChange}
@@ -140,6 +148,7 @@ const FormStepTwo = ({ customerDetails, handleInputChange, handleSelectChange }:
                     name="back"
                     id="back-length"
                     value={customerDetails.back}
+                    min={0}
                     pattern={decimalNumberPattern}
                     required
                     onChange={handleInputChange}
@@ -153,6 +162,7 @@ const FormStepTwo = ({ customerDetails, handleInputChange, handleSelectChange }:
                     name="stomach"
                     id="stomach"
                     value={customerDetails.stomach}
+                    min={0}
                     pattern={decimalNumberPattern}
                     required
                     onChange={handleInputChange}
@@ -166,6 +176,7 @@ const FormStepTwo = ({ customerDetails, handleInputChange, handleSelectChange }:
                     name="hip"
                     id="hip"
                     value={customerDetails.hip}
+                    min={0}
                     pattern={decimalNumberPattern}
                     required
                     onChange={handleInputChange}
@@ -179,6 +190,7 @@ const FormStepTwo = ({ customerDetails, handleInputChange, handleSelectChange }:
                     name="thigh"
                     id="thigh"
                     value={customerDetails.thigh}
+                    min={0}
                     pattern={decimalNumberPattern}
                     required
                     onChange={handleInputChange}

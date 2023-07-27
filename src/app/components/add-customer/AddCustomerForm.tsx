@@ -4,6 +4,8 @@ import { useState, useRef } from 'react';
 
 import useSWRMutation from 'swr/mutation';
 
+import { CustomerDetailsType } from '@/app/reducers/savedDetails';
+
 import axios from '@/app/axios';
 
 import styles from '@/app/add-customer/addCustomer.module.css';
@@ -12,51 +14,26 @@ import FormStepOne from './FormStepOne';
 import FormStepTwo from './FormStepTwo';
 import FormStepThree from './FormStepThree';
 
-type NumberInputType = number | '';
-
-export interface CustomerDetailsType {
-    ownerName: string,
-    contact: string,
-    location: string,
-    price: NumberInputType,
-    deposit: NumberInputType,
-    deliveryDate: string,
-    measurements: string,
-    leg: NumberInputType,
-    neck: NumberInputType,
-    waist: NumberInputType,
-    shoulder: NumberInputType,
-    arm: NumberInputType,
-    chest: NumberInputType,
-    bicep: number | '',
-    wrist: NumberInputType,
-    back: NumberInputType,
-    stomach: NumberInputType,
-    hip: NumberInputType,
-    thigh: NumberInputType,
-    clothImages: File | null
-}
-
-const initialCustomerDetails = {
+const initialCustomerDetails: CustomerDetailsType = {
     ownerName: '',
     contact: '',
     location: '',
-    price: '' as NumberInputType,
-    deposit: '' as NumberInputType,
+    price: '',
+    deposit: '',
     deliveryDate: '',
     measurements: '',
-    leg: '' as NumberInputType,
-    neck: '' as NumberInputType,
-    waist: '' as NumberInputType,
-    shoulder: '' as NumberInputType,
-    arm: '' as NumberInputType,
-    chest: '' as NumberInputType,
-    bicep: '' as NumberInputType,
-    wrist: '' as NumberInputType,
-    back: '' as NumberInputType,
-    stomach: '' as NumberInputType,
-    hip: '' as NumberInputType,
-    thigh: '' as NumberInputType,
+    leg: '',
+    neck: '',
+    waist: '',
+    shoulder: '',
+    arm: '',
+    chest: '',
+    bicep: '',
+    wrist: '',
+    back: '',
+    stomach: '',
+    hip: '',
+    thigh: '',
     clothImages: null
 }
 
@@ -77,7 +54,7 @@ const AddCustomerForm = () => {
             setCurrentStep(step => step + 1);
         } else {
             formRef.current?.reportValidity();
-        }        
+        }
     }
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -93,7 +70,7 @@ const AddCustomerForm = () => {
             [event.target.name]: event.target.value
         });
     }
-    
+
     const validateFormInputs = () => {
         const currentFormInputs = document.getElementsByClassName('form-input') as unknown as HTMLInputElement[];
 
@@ -109,7 +86,7 @@ const AddCustomerForm = () => {
         return response;
     }
 
-    const { trigger } = useSWRMutation('/cloth', sendRequest);
+    const { trigger, isMutating } = useSWRMutation('/cloth', sendRequest);
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
         event.preventDefault();
@@ -158,7 +135,7 @@ const AddCustomerForm = () => {
                 {currentStep > 0 && <button className={styles.btn} onClick={handlePrevBtn} type='button'>Back</button>}
                 {currentStep < 2 ?
                     <button className={styles.btn} onClick={handleNextBtn} type='button'>Next</button> :
-                    <button className={styles.btn} type='submit'>Add</button>
+                    <button className={styles.btn} type='submit' disabled={isMutating}>Add</button>
                 }
             </div>
         </form>

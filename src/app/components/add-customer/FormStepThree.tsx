@@ -1,6 +1,6 @@
 import { SetStateAction, useRef } from "react";
 
-import { CustomerDetailsType } from "./AddCustomerForm";
+import { CustomerDetailsType } from "@/app/reducers/savedDetails";
 
 import styles from '@/app/add-customer/addCustomer.module.css';
 
