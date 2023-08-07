@@ -18,6 +18,10 @@ const HamburgerMenu = () => {
 
     const { state, dispatch } = useAppContext();
 
+    const showLogoutModal = () => {
+        dispatch({ type: 'SHOW_LOGOUT_MODAL' });
+    }
+
     const closeMenu = () => {
         dispatch({ type: 'CLOSE_MENU' });
     }
@@ -69,17 +73,17 @@ const HamburgerMenu = () => {
                         Measuring Guidelines
                     </NavLink>
                 </li>
-                {/* <li
+                <li
                     className={styles.menuItem}
                     onClick={closeMenu}>
-                    <NavLink className={styles.menuLink} href='/dashboard/logout'>
+                    <button className={styles.logoutBtn} onClick={showLogoutModal}>
                         <Image
                             src={logoutIcon}
                             alt=''
                         />
                         Log Out
-                    </NavLink>
-                </li> */}
+                    </button>
+                </li>
             </ul>
         </nav>
     )

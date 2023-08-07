@@ -4,17 +4,17 @@ import { useState, useRef } from 'react';
 
 import useSWRMutation from 'swr/mutation';
 
-import { CustomerDetailsType } from '@/app/reducers/savedDetails';
+import { SavedDetailsType } from '@/app/reducers/savedDetails';
 
 import axios from '@/app/axios';
 
-import styles from '@/app/add-customer/addCustomer.module.css';
+import styles from '@/app/dashboard/add-customer/addCustomer.module.css';
 
-import FormStepOne from './FormStepOne';
-import FormStepTwo from './FormStepTwo';
-import FormStepThree from './FormStepThree';
+import FormStepOne from '@/app/components/add-customer/FormStepOne';
+import FormStepTwo from '@/app/components/add-customer/FormStepTwo';
+import FormStepThree from '@/app/components/add-customer/FormStepThree';
 
-const initialCustomerDetails: CustomerDetailsType = {
+const initialCustomerDetails: SavedDetailsType = {
     ownerName: '',
     contact: '',
     location: '',
@@ -43,7 +43,7 @@ const AddCustomerForm = () => {
 
     const [currentStep, setCurrentStep] = useState<number>(0);
 
-    const [customerDetails, setCustomerDetails] = useState<CustomerDetailsType>(initialCustomerDetails);
+    const [customerDetails, setCustomerDetails] = useState<SavedDetailsType>(initialCustomerDetails);
 
     const handlePrevBtn = () => {
         setCurrentStep(step => step - 1);

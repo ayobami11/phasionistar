@@ -1,0 +1,27 @@
+.section {
+    margin: 2em 5%;
+}
+
+.articleList {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    margin: 2.5em 0;
+}
+
+.article figure {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.article h3 {
+    color: rgb(var(--yellow-rgb));
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.article p {
+    padding-left: 2.25em;
+}

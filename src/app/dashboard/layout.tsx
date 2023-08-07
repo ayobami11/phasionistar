@@ -1,4 +1,5 @@
 import Header from '@/app/components/Header';
+import LogoutModal from '@/app/components/logout/LogoutModal';
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     return (
@@ -6,6 +7,8 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
             <Header />
             <main>
                 {children}
+
+                <LogoutModal />
             </main>
         </>
     )

@@ -1,9 +1,9 @@
-import { CustomerDetailsType } from '@/app/reducers/savedDetails';
+import { SavedDetailsType } from '@/app/reducers/savedDetails';
 
-import styles from '@/app/add-customer/addCustomer.module.css';
+import styles from '@/app/dashboard/add-customer/addCustomer.module.css';
 
 interface FormStepTwoType {
-    customerDetails: CustomerDetailsType,
+    customerDetails: SavedDetailsType,
     handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void,
     handleSelectChange: (event: React.ChangeEvent<HTMLSelectElement>) => void
 }

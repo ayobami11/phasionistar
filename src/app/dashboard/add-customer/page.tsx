@@ -1,6 +1,6 @@
 import styles from '@/app/dashboard/add-customer/addCustomer.module.css';
 
-import SavedDetailsForm from '@/app/components/saved-details/SavedDetailsForm';
+import AddCustomerForm from '@/app/components/add-customer/AddCustomerForm';
 
 const AddCustomer = () => {
     return (
@@ -9,7 +9,7 @@ const AddCustomer = () => {
                 <h2>New Customers</h2>
                 <p>Add new customers below:</p>
 
-                <SavedDetailsForm />
+                <AddCustomerForm />
             </div>
         </main>
     )

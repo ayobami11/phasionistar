@@ -1,12 +1,12 @@
 import { SetStateAction, useRef } from "react";
 
-import { CustomerDetailsType } from "@/app/reducers/savedDetails";
+import { SavedDetailsType } from "@/app/reducers/savedDetails";
 
-import styles from '@/app/add-customer/addCustomer.module.css';
+import styles from '@/app/dashboard/add-customer/addCustomer.module.css';
 
 interface FormStepThreeType {
     clothImages: File | null,
-    setCustomerDetails: React.Dispatch<SetStateAction<CustomerDetailsType>>,
+    setCustomerDetails: React.Dispatch<SetStateAction<SavedDetailsType>>,
 }
 
 const FormStepThree = ({ clothImages, setCustomerDetails }: FormStepThreeType) => {

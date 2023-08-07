@@ -20,7 +20,7 @@
 .menuList {
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    /* gap: 2em; */
 }
 
 .menuItem {
@@ -31,7 +31,8 @@
     width: 100%;
 }
 
-.menuLink {
+.menuLink,
+.logoutBtn {
     font-size: 1.5rem;
     font-weight: 600;
 
@@ -42,9 +43,13 @@
     gap: 0.5em;
 }
 
-.menuLink:hover,
-.menuLink:hover * {
+.menuLink:hover {
     color: rgb(var(--yellow-rgb));
+}
+
+.logoutBtn {
+    background: transparent;
+    border: none;
 }
 
 @media (min-width: 769px) {

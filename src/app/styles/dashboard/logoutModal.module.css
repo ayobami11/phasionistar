@@ -1,0 +1,45 @@
+.dialog {
+    position: absolute;
+    border: none;
+    margin: auto;
+    font-size: 1.25rem;
+    width: min(336px, 90%);
+}
+
+.dialog::backdrop {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.menu {
+    font-weight: 600;
+    margin: 1.5em 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.menu li {
+    flex: 1;
+}
+
+.leaveBtn,
+.stayBtn {
+    border: none;
+    border-radius: 0.3em;
+    padding: 0.8em 0.5em;
+
+    width: 100%;
+}
+
+.leaveBtn {
+    background: rgb(var(--white-rgb));
+    border: 1px solid currentColor;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);   
+    color: rgb(var(--yellow-rgb));
+}
+
+.stayBtn {
+    background: rgb(var(--yellow-rgb));
+    color: rgb(var(--white-rgb));
+}
